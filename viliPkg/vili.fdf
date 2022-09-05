@@ -596,11 +596,6 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
-  FILE FREEFORM = DDE58710-41CD-4306-1111-3FA90BB1D2DD {
-    SECTION UI = "startup.nsh"
-    SECTION RAW = viliPkg/startup.nsh
-  }
-
   FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
     SECTION UI = "uefiplat.cfg"
     SECTION RAW = viliPkg/uefiplat.cfg
