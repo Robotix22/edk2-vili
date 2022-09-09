@@ -1,5 +1,9 @@
 # EDK2 UEFI Firmware For Xiaomi 11T Pro
 
+## Warning
+
+You need to use your own FDT File from /sys/firmware or otherwise it may not boot
+
 ## Resources
 
 [Discord Server](https://discord.gg/Gb4KAqAQdm)
