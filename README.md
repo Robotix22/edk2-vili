@@ -2,7 +2,7 @@
 
 ## Note
 
-I dont work on this repo anymore. More UEFI work for this Device [here](https://github.com/Robotix22/MU-vili)
+I don´t work on this repo anymore. but I work on a MU Port for this Device
 ## Warning
 
 You need to use your own FDT File from /sys/firmware or otherwise it may not boot
