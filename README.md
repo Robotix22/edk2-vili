@@ -1,5 +1,8 @@
 # EDK2 UEFI Firmware For Xiaomi 11T Pro
 
+## Note
+
+I dont work on this repo anymore. More UEFI work for this Device [here](https://github.com/Robotix22/MU-vili)
 ## Warning
 
 You need to use your own FDT File from /sys/firmware or otherwise it may not boot
