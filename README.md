@@ -2,7 +2,8 @@
 
 ## Note
 
-I don´t work on this repo anymore. but I work on a MU Port for this Device
+I don´t work on this repo anymore. The MU Port for this Device is [here](https://github.com/Robotix22/MU-vili)
+
 ## Warning
 
 You need to use your own FDT File from /sys/firmware or otherwise it may not boot
