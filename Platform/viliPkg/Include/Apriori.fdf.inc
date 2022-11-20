@@ -266,18 +266,6 @@ APRIORI DXE {
     SECTION UI = "UsbPwrCtrlDxe"
   }
 
-  FILE DRIVER = 4BCE7F36-428E-4393-99E3-7E0844404DBA {
-    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/QcomChargerDxeLA/QcomChargerDxeLA.depex
-    SECTION PE32 = Platform/viliPkg/Binaries/QcomChargerDxeLA/QcomChargerDxeLA.efi
-    SECTION UI = "QcomChargerDxeLA"
-  }
-
-  FILE DRIVER = 2E3042F3-2BB9-463F-8866-56D75B7C4AB0 {
-    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/ChargerExDxe/ChargerExDxe.depex
-    SECTION PE32 = Platform/viliPkg/Binaries/ChargerExDxe/ChargerExDxe.efi
-    SECTION UI = "ChargerExDxe"
-  }
-
   FILE DRIVER = 94f8a6a7-dc34-4101-88c1-99179cceae83 {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/UsbfnDwc3Dxe/UsbfnDwc3Dxe.depex
     SECTION PE32 = Platform/viliPkg/Binaries/UsbfnDwc3Dxe/UsbfnDwc3Dxe.efi
