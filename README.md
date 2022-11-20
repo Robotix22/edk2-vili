@@ -1,32 +1,25 @@
 # EDK2 UEFI Firmware For Xiaomi 11T Pro
 
-## Note
-
-I don´t work on this repo anymore. The MU Port for this Device is [here](https://github.com/Robotix22/MU-vili)
-
-## Warning
-
-You need to use your own FDT File from /sys/firmware or otherwise it may not boot
-
 ## Resources
 
 [Discord Server](https://discord.gg/Gb4KAqAQdm)
 
 ## Status
 
-Can enter UEFI Shell or enter UEFI Setup with startup.nsh
+Is able to boot SimpleInit Also booting something from UFS
 
 ## Working
 
 - Display
-- Clocks (I think)
-- ...
+- Clocks
+- UFS
+- Buttons (SimpleInit only)
+- Slot Switch (Unstable)
 
 ## Not Working
 
-- Buttons
-- UFS
 - USB
+- Touchscreen
 - ...
 
 ## Building
@@ -34,11 +27,8 @@ Can enter UEFI Shell or enter UEFI Setup with startup.nsh
 You need to clone these repositories 
 
 ```bash
-git clone https://github.com/Robotix22/edk2-vili.git
-git clone https://github.com/tianocore/edk2.git --recursive
-git clone https://github.com/tianocore/edk2-platforms.git
+git clone https://github.com/Robotix22/edk2-vili.git --recursive
 ```
-You should have all three directories side by side.
 
 Now Install needed Packages
 
@@ -52,7 +42,6 @@ Now you can build the UEFI Image by doing
 
 ```bash
 cd edk2-vili
-./firstrun.sh
 ./build.sh
 ```
 
@@ -66,4 +55,8 @@ fastboot flash recovery boot-vili.img
 
 ## Credits
 
-This is based on `edk2-sdm845`
+This is based on [edk2-msm](https://github.com/edk2-porting/edk2-msm)
+
+## License
+
+All code except drivers in GPLDriver directory are licensed under BSD 2-Clause. GPL Drivers are licensed under GPLv2 license.
