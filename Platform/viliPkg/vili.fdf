@@ -185,11 +185,6 @@ READ_LOCK_STATUS   = TRUE
 
   INF Platform/viliPkg/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
 
-  FILE APPLICATION = EEE9C2B1-16CA-4F34-87EA-2E6D1E160CC4 {
-    SECTION UI = "QcomChargerApp"
-    SECTION PE32 = Platform/viliPkg/Binaries/QcomChargerApp/QcomChargerApp.efi
-  }
-
   #
   # Bds
   #
