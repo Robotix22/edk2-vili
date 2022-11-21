@@ -40,20 +40,15 @@ export PACKAGES_PATH="$_EDK2:$_EDK2_PLATFORMS:$_SIMPLE_INIT:$PWD:$PWD/GPLDrivers
 export WORKSPACE="${OUTDIR}/workspace"
 mkdir -p "${_SIMPLE_INIT}/build" "${_SIMPLE_INIT}/root/usr/share/locale"
 for i in "${_SIMPLE_INIT}/po/"*.po
-do
-	[ -f "${i}" ]||continue
+do	[ -f "${i}" ]||continue
 	_name="$(basename "$i" .po)"
 	_path="${_SIMPLE_INIT}/root/usr/share/locale/${_name}/LC_MESSAGES"
 	mkdir -p "${_path}"
 	msgfmt -o "${_path}/simple-init.mo" "${i}"
 done
-
-if "${GEN_ROOTFS}"
-then
-	 bash "${_SIMPLE_INIT}/scripts/gen-rootfs-source.sh" \
-		"${_SIMPLE_INIT}" \
-		"${_SIMPLE_INIT}/build"
-fi
+bash "${_SIMPLE_INIT}/scripts/gen-rootfs-source.sh" \
+	"${_SIMPLE_INIT}" \
+	"${_SIMPLE_INIT}/build"
 
 source "${_EDK2}/edksetup.sh"
 [ -d "${WORKSPACE}" ]||mkdir "${WORKSPACE}"
