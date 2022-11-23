@@ -87,62 +87,22 @@ READ_LOCK_STATUS   = TRUE
 # Apriori
 !include Platform/viliPkg/Include/Apriori.fdf.inc
 
-  INF MdeModulePkg/Core/Dxe/DxeMain.inf
-
-  #
-  # PI DXE Drivers producing Architectural Protocols (EFI Services)
-  #
-  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
-  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-  INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
-  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
-  INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
-  INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
-  INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
-  INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
-
-  #
-  # Multiple Console IO support
-  #
-  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
-  INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
-  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-
-  FILE DRIVER = cccb0c28-4b24-11d5-9a5a-0090273fc14d {
-     SECTION PE32 = Platform/viliPkg/Binaries/GraphicsConsoleDxe/GraphicsConsoleDxe.efi
-     SECTION UI = "GraphicsConsoleDxe"
-  }
-
-  INF MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf
-
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
-
-  FILE DRIVER = 49EA041E-6752-42CA-B0B1-7344FE2546B7 {
-    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/ArmTimerDxe/ArmTimerDxe.depex
-    SECTION PE32 = Platform/viliPkg/Binaries/ArmTimerDxe/ArmTimerDxe.efi
-    SECTION UI = "ArmTimerDxe"
-  }
-
-  INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
-
-  !include Platform/viliPkg/Include/dxe.fdf.inc
+# Dxe
+!include Platform/viliPkg/Include/dxe.fdf.inc
 
   INF Platform/viliPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
   #
   # Helper drivers
   #
-  #INF Platform/viliPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
+  INF Platform/viliPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
 
   #
   # USB Host Support
   #
-  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   #
   # FAT filesystem + GPT/MBR partitioning
@@ -156,13 +116,24 @@ READ_LOCK_STATUS   = TRUE
 
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
+  INF MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf
+  INF MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
+
   #
   # ACPI Support
   #
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  # INF RuleOverride = ACPITABLE sm8350Pkg/AcpiTables/AcpiTables.inf
+
+  #FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+    #SECTION RAW = Platform/viliPkg/AcpiTables/minimal/DBG2.raw
+    #SECTION RAW = Platform/viliPkg/AcpiTables/minimal/FACP.raw
+    #SECTION RAW = Platform/viliPkg/AcpiTables/minimal/GTDT.raw
+    #SECTION RAW = Platform/viliPkg/AcpiTables/minimal/APIC.raw
+    #SECTION RAW = Platform/viliPkg/AcpiTables/minimal/DSDT.raw
+    #SECTION UI = "AcpiTables" 
+  #}
 
   #
   # FDT support
@@ -212,6 +183,9 @@ READ_LOCK_STATUS   = TRUE
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   INF GPLDrivers/Application/SwitchSlotsApp/SwitchSlotsApp.inf
 
+# Raw
+!include Platform/viliPkg/Include/raw.fdf.inc
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
@@ -249,5 +223,4 @@ READ_LOCK_STATUS   = TRUE
   }
 
 !include Platform/viliPkg/Common.fdf.inc
-
 
