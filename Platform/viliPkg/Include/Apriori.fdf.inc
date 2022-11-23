@@ -1,17 +1,20 @@
 APRIORI DXE {
 
-  #
-  # PI DXE Drivers producing Architectural Protocols (EFI Services)
-  #
+  # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
+
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
+
+  # Next, install cpu protocol and enable interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-
+  
+  # Core Drivers
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
 
@@ -106,7 +109,7 @@ APRIORI DXE {
   }
 
   // Used to speed up booting. must be loaded after ClockDxe
-  #INF Platform/RenegadePkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
+  INF Platform/viliPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
 
   FILE DRIVER = 5824f9de-17d2-4b1f-a5fe-5eb77fa53093 {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/ICBDxe/ICBDxe.depex
@@ -177,17 +180,19 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
+  FILE DRIVER = 040e1e61-0afb-411b-9ec9-00f3fc59cc13 {
+    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/QcomWDogDxe/QcomWDogDxe.depex
+    SECTION PE32 = Platform/viliPkg/Binaries/QcomWDogDxe/QcomWDogDxe.patched.efi
+    SECTION UI = "QcomWDogDxe"
+  }
+
   FILE DRIVER = 7DB0793A-4402-4BE1-906E-D0FABAD2707E {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/DDRInfoDxe/DDRInfoDxe.depex
     SECTION PE32 = Platform/viliPkg/Binaries/DDRInfoDxe/DDRInfoDxe.efi
     SECTION UI = "DDRInfoDxe"
   }
 
-  #FILE DRIVER = 3ae17db7-3cc5-4b89-9304-9549211057ef {
-    #SECTION DXE_DEPEX = Platform/viliPkg/Binaries/ResetRuntimeDxe/ResetRuntimeDxe.depex
-    #SECTION PE32 = Platform/viliPkg/Binaries/ResetRuntimeDxe/ResetRuntimeDxe.efi
-    #SECTION UI = "ResetRuntimeDxe"
-  #}
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   FILE DRIVER = 1C04F529-0612-4319-9315-B2E75C16810A {
     SECTION PE32 = Platform/viliPkg/Binaries/FeatureEnablerDxe/FeatureEnablerDxe.patched.efi
@@ -234,7 +239,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -266,6 +270,18 @@ APRIORI DXE {
     SECTION UI = "UsbPwrCtrlDxe"
   }
 
+  FILE DRIVER = 4BCE7F36-428E-4393-99E3-7E0844404DBA {
+    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/QcomChargerDxeLA/QcomChargerDxeLA.depex
+    SECTION PE32 = Platform/viliPkg/Binaries/QcomChargerDxeLA/QcomChargerDxeLA.efi
+    SECTION UI = "QcomChargerDxeLA"
+  }
+
+  FILE DRIVER = 2E3042F3-2BB9-463F-8866-56D75B7C4AB0 {
+    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/ChargerExDxe/ChargerExDxe.depex
+    SECTION PE32 = Platform/viliPkg/Binaries/ChargerExDxe/ChargerExDxe.efi
+    SECTION UI = "ChargerExDxe"
+  }
+
   FILE DRIVER = 94f8a6a7-dc34-4101-88c1-99179cceae83 {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/UsbfnDwc3Dxe/UsbfnDwc3Dxe.depex
     SECTION PE32 = Platform/viliPkg/Binaries/UsbfnDwc3Dxe/UsbfnDwc3Dxe.efi
@@ -278,12 +294,28 @@ APRIORI DXE {
     SECTION UI = "XhciPciEmulation"
   }
 
-  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  FILE DRIVER = B7F50E91-A759-412C-ADE4-DCD03E7F7C28 {
+    SECTION PE32 = Platform/viliPkg/Binaries/XhciDxe/XhciDxe.efi
+    SECTION UI = "XhciDxe"
+  }
+
+  FILE DRIVER = 240612B7-A063-11D4-9A3A-0090273FC14D {
+    SECTION PE32 = Platform/viliPkg/Binaries/UsbBusDxe/UsbBusDxe.efi
+    SECTION UI = "UsbBusDxe"
+  }
+
+  FILE DRIVER = 2D2E62CF-9ECF-43B7-8219-94E7FC713DFE {
+    SECTION PE32 = Platform/viliPkg/Binaries/UsbKbDxe/UsbKbDxe.efi
+    SECTION UI = "UsbKbDxe"
+  }
+
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  FILE DRIVER = 9FB4B4A7-42C0-4BCD-8540-9BCC6711F83E {
+    SECTION PE32 = Platform/viliPkg/Binaries/UsbMassStorageDxe/UsbMassStorageDxe.efi
+    SECTION UI = "UsbMassStorageDxe"
+  }
 
   FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/UsbConfigDxe/UsbConfigDxe.depex
@@ -301,6 +333,28 @@ APRIORI DXE {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/GpiDxe/GpiDxe.depex
     SECTION PE32 = Platform/viliPkg/Binaries/GpiDxe/GpiDxe.efi
     SECTION UI = "GpiDxe"
+  }
+
+  FILE DRIVER = c62f4b20-681e-11df-8f0d-0002a5d5c51b {
+    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/PciHostBridge/PciHostBridge.depex
+    SECTION PE32 = Platform/viliPkg/Binaries/PciHostBridge/PciHostBridge.patched.efi
+    SECTION UI = "PciHostBridge"
+  }
+
+  FILE DRIVER = 5f0937cd-73f9-445e-b320-bb6fd5d3cbde {
+    SECTION UI = "UCDxe"
+    SECTION PE32 = Platform/viliPkg/Binaries/UCDxe/UCDxe.efi
+  }
+
+  FILE DRIVER = b0d3689e-11f8-43c6-8ece-023a29cec35b {
+    SECTION UI = "RngDxe"
+    SECTION PE32 = Platform/viliPkg/Binaries/RngDxe/RngDxe.efi
+  }
+
+  FILE DRIVER = ce044919-3000-4998-82af-ddb4e17c6b66 {
+    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/AdapterInformationDxe/AdapterInformationDxe.depex
+    SECTION PE32 = Platform/viliPkg/Binaries/AdapterInformationDxe/AdapterInformationDxe.efi
+    SECTION UI = "AdapterInformationDxe"
   }
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
