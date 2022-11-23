@@ -5,8 +5,6 @@
 
 #include <Protocol/EFIClock.h>
 
-STATIC EFI_HANDLE Handle = NULL;
-
 EFI_STATUS
 EFIAPI
 SetCPUFreqDxeMain (
