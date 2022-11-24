@@ -102,9 +102,12 @@
   gviliTokenSpaceGuid.PcdMipiFrameBufferRefreshRate|120|UINT32|0x0000a406
   
   # Device Info
-  gviliTokenSpaceGuid.PcdDeviceVendor|"Xiaomi"|VOID*|0x0000a301
-  gviliTokenSpaceGuid.PcdDeviceProduct|"11T Pro Device"|VOID*|0x0000a302
-  gviliTokenSpaceGuid.PcdDeviceCodeName|"vili"|VOID*|0x0000a303
+  gviliTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 @ 2.84 GHz"|VOID*|0x0000a301
+  gviliTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"|VOID*|0x0000a302
+  gviliTokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 11T Pro"|VOID*|0x0000a303
+  gviliTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"|VOID*|0x0000a304
+  gviliTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_11T_Pro"|VOID*|0x0000a305
+  gviliTokenSpaceGuid.PcdSmbiosBoardModel|"Xiaomi 11T Pro"|VOID*|0x0000a306
 
   # RTC information
   gviliTokenSpaceGuid.PcdBootShimInfo1|0xb0000000|UINT64|0x00000a601
