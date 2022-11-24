@@ -240,7 +240,6 @@
   PlatformPeiLib|Platform/viliPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|Platform/viliPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|Platform/viliPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  SOCSmbiosInfoLib|Platform/viliPkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
 
   RealTimeClockLib|EmbeddedPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
   ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
