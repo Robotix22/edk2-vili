@@ -14,7 +14,7 @@ Is able to boot SimpleInit Also booting something from UFS
 - Clocks
 - UFS
 - Buttons (SimpleInit only)
-- Slot Switch (Unstable)
+- Slot Switch
 
 ## Not Working
 
