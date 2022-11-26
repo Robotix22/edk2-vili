@@ -84,7 +84,7 @@ SwitchSlotsAppEntryPoint(
 
   // Print (L"Current active slot has been updated successfully! Press any key
   // to reboot.\n"); WaitAnyKey(SystemTable);
-  gRT->ResetSystem(EfiResetWarm, EFI_SUCCESS, 0, NULL);
+  gRT->ResetSystem(EfiResetCold, EFI_SUCCESS, 0, NULL);
   CpuDeadLoop();
   return EFI_SUCCESS;
 }
