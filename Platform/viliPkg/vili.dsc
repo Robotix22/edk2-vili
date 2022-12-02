@@ -137,7 +137,7 @@
   gArmTokenSpaceGuid.PcdPciBusMax|0xff
 
   # Simple Init
-  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|300
+  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|230
   gSimpleInitTokenSpaceGuid.PcdDeviceTreeStore|0x83300000
   gSimpleInitTokenSpaceGuid.PcdLoggerdUseConsole|FALSE
 
