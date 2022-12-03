@@ -139,6 +139,9 @@ READ_LOCK_STATUS   = TRUE
   # FDT support
   #
   INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+    SECTION RAW = Platform/viliPkg/FdtBlob/sm8350-xiaomi-11t-pro.dtb
+  }
 
   #
   # SMBIOS Support
@@ -178,7 +181,7 @@ READ_LOCK_STATUS   = TRUE
   #
   INF src/main/SimpleInitMain.inf
 
-  #INF src/kernelfdt/KernelFdtDxe.inf
+  INF src/kernelfdt/KernelFdtDxe.inf
 
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   INF GPLDrivers/Application/SwitchSlotsApp/SwitchSlotsApp.inf
