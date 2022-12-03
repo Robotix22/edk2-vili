@@ -1,5 +1,9 @@
 # EDK2 UEFI Firmware For Xiaomi 11T Pro
 
+## Note
+
+I recommend using the MU Port for this Device: [MU-vili](https://github.com/Robotix22/MU-vili)
+
 ## Resources
 
 [Discord Server](https://discord.gg/Gb4KAqAQdm)
