@@ -175,11 +175,11 @@
     SECTION UI = "PciHostBridge"
   }
 
-  #FILE DRIVER = 1d317734-4083-47c6-83ea-e3a42f2a6bff {
-    #SECTION DXE_DEPEX = Platform/viliPkg/Binaries/PILDxe/PILDxe.depex
-    #SECTION PE32 = Platform/viliPkg/Binaries/PILDxe/PILDxe.efi
-    #SECTION UI = "PILDxe"
-  #}
+  FILE DRIVER = 1d317734-4083-47c6-83ea-e3a42f2a6bff {
+    SECTION DXE_DEPEX = Platform/viliPkg/Binaries/PILDxe/PILDxe.depex
+    SECTION PE32 = Platform/viliPkg/Binaries/PILDxe/PILDxe.efi
+    SECTION UI = "PILDxe"
+  }
 
   FILE DRIVER = 8CF9C920-D5E6-4DAC-BEF9-6E6A4EEC7ADD {
     SECTION DXE_DEPEX = Platform/viliPkg/Binaries/PILProxyDxe/PILProxyDxe.depex
