@@ -8,7 +8,7 @@ I recommend using the MU Port for this Device: [MU-vili](https://github.com/Robo
 
 ## Resources
 
-~~[Discord Server](https://discord.gg/Gb4KAqAQdm)~~ Is under construction
+[Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
 ## Status
 
