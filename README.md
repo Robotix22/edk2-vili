@@ -4,7 +4,7 @@
 
 ## Note
 
-I recommend using the MU Port for this Device: [MU-vili](https://github.com/Robotix22/MU-vili)
+I recommend using the MU Port for this Device: [MU-msm](https://github.com/Robotix22/MU-msm)
 
 ## Resources
 
